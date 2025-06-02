@@ -23,8 +23,8 @@ app.use(express.json());
 const server = createServer(app);
 const io = new Server(server, {
   cors: { 
-    origin: ["http://localhost:3000", "https://quick-cast.vercel.app"], 
-    methods: ["GET", "POST"],
+    origin: ["http://localhost:3000"], 
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }
 });

@@ -1,19 +1,11 @@
-// 'use client';
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Footer from "../components/Footer.jsx";
-import { Toaster } from "react-hot-toast";
-import Navbar from "@/components/Navbar";
+'use client';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { AppProvider } from '@/context/AppContext';
+import Navbar from '@/components/Navbar';
+import { Toaster } from 'react-hot-toast';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: "QuickCast",
@@ -23,13 +15,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        <Toaster position="top-right" />
-        {children}  {/* This renders the current page content */}
-        {/* <Footer /> */}
+      <body className={inter.className}>
+        <AppProvider>
+          <Navbar />
+          <main className="pt-16">
+            {children}
+          </main>
+          <Toaster position="top-right" />
+        </AppProvider>
       </body>
     </html>
   );

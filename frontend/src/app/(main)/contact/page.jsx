@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  EnvelopeIcon,
-  PhoneIcon,
-  MapPinIcon,
-  ClockIcon,
-} from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { EnvelopeIcon, PhoneIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Footer from '@/components/Footer';
 
 export default function ContactPage() {
@@ -36,116 +34,95 @@ export default function ContactPage() {
     }
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <main className="min-h-screen bg-blue-50 py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="max-w-4xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl font-bold mb-4 text-[#191676] hover:text-blue-600 transition-colors duration-300">
-              QUICK<span className="text-blue-600">CAST</span>
-            </h1>
-            <h2 className="text-4xl font-bold mb-4 text-[#191676] hover:text-blue-600 transition duration-300">
-              Contact Us
-            </h2>
-            <p className="text-[#191676] text-lg">
-              Have questions about our realtime presentation system? We'd love
-              to hear from you. Send us a message and we'll respond as soon as
-              possible.
-            </p>
-          </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+      {/* Hero Section */}
+      <section className="py-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20" />
+        <div className="container mx-auto text-center relative z-10">
+          <Badge className="mb-4 bg-purple-100 text-purple-700 hover:bg-purple-100">
+            Get in Touch
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            Contact
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              {" "}
+              Us
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Have questions about our realtime presentation system? We'd love to hear from you. 
+            Send us a message and we'll respond as soon as possible.
+          </p>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Information */}
-            <motion.div
-              className="bg-white rounded-lg p-8 shadow-xl border border-blue-100 transition-all duration-500"
-              variants={fadeInUp}
-              whileHover={{ scale: 1.03 }}
-            >
-              <h2 className="text-2xl font-semibold mb-6 text-[#191676]">
-                Get in Touch
-              </h2>
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: (
-                      <EnvelopeIcon className="h-6 w-6 text-blue-600" />
-                    ),
-                    title: 'Email',
-                    text: 'support@quickcast.com',
-                  },
-                  {
-                    icon: <PhoneIcon className="h-6 w-6 text-blue-600" />,
-                    title: 'Phone',
-                    text: '+1 (555) 123-4567',
-                  },
-                  {
-                    icon: <MapPinIcon className="h-6 w-6 text-blue-600" />,
-                    title: 'Address',
-                    text:
-                      '123 Innovation Way\nTech District, San Francisco, CA 94103',
-                  },
-                  {
-                    icon: <ClockIcon className="h-6 w-6 text-blue-600" />,
-                    title: 'Business Hours',
-                    text:
-                      'Monday - Friday: 9 AM - 6 PM\nSaturday & Sunday: Closed',
-                  },
-                ].map(({ icon, title, text }, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="flex items-start space-x-4 p-2 rounded-lg transition duration-300 hover:bg-blue-100"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="flex-shrink-0">{icon}</div>
-                    <div>
-                      <h3 className="text-lg font-medium text-[#191676] group-hover:text-blue-700">
-                        {title}
-                      </h3>
-                      <p className="text-[#191676] whitespace-pre-line">
-                        {text}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Contact Information */}
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="text-2xl font-semibold text-gray-900">Contact Information</CardTitle>
+              <CardDescription className="text-gray-600">
+                Reach out to us through any of these channels
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {[
+                {
+                  icon: <EnvelopeIcon className="h-6 w-6 text-purple-600" />,
+                  title: 'Email',
+                  text: 'support@quickcast.com',
+                },
+                {
+                  icon: <PhoneIcon className="h-6 w-6 text-purple-600" />,
+                  title: 'Phone',
+                  text: '+1 (555) 123-4567',
+                },
+                {
+                  icon: <MapPinIcon className="h-6 w-6 text-purple-600" />,
+                  title: 'Address',
+                  text: '123 Innovation Way\nTech District, San Francisco, CA 94103',
+                },
+                {
+                  icon: <ClockIcon className="h-6 w-6 text-purple-600" />,
+                  title: 'Business Hours',
+                  text: 'Monday - Friday: 9 AM - 6 PM\nSaturday & Sunday: Closed',
+                },
+              ].map(({ icon, title, text }, idx) => (
+                <motion.div
+                  key={idx}
+                  className="flex items-start space-x-4 p-4 rounded-lg transition duration-300 hover:bg-purple-50"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="flex-shrink-0">{icon}</div>
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+                    <p className="text-gray-600 whitespace-pre-line">{text}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </CardContent>
+          </Card>
 
-            {/* Contact Form */}
-            <motion.div
-              className="bg-white rounded-lg p-8 shadow-xl border border-blue-100 transition-all duration-500"
-              variants={fadeInUp}
-              whileHover={{ scale: 1.03 }}
-            >
+          {/* Contact Form */}
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="text-2xl font-semibold text-gray-900">Send us a Message</CardTitle>
+              <CardDescription className="text-gray-600">
+                Fill out the form below and we'll get back to you
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {['name', 'email', 'subject'].map((field) => (
                   <motion.div
                     key={field}
-                    variants={fadeInUp}
                     whileHover={{ scale: 1.01 }}
                   >
                     <label
                       htmlFor={field}
-                      className="block text-sm font-medium text-[#191676] mb-2"
+                      className="block text-sm font-medium text-gray-700 mb-2"
                     >
                       {field === 'name'
                         ? 'Your Name'
@@ -156,7 +133,7 @@ export default function ContactPage() {
                     <input
                       type={field === 'email' ? 'email' : 'text'}
                       id={field}
-                      className="w-full px-4 py-3 rounded-lg bg-blue-50 border border-blue-200 text-[#191676] placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:ring-1 hover:ring-blue-300"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                       placeholder={`Enter your ${field}`}
                       value={formData[field]}
                       onChange={(e) =>
@@ -167,17 +144,17 @@ export default function ContactPage() {
                   </motion.div>
                 ))}
 
-                <motion.div variants={fadeInUp} whileHover={{ scale: 1.01 }}>
+                <motion.div whileHover={{ scale: 1.01 }}>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-[#191676] mb-2"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Message
                   </label>
                   <textarea
                     id="message"
                     rows="4"
-                    className="w-full px-4 py-3 rounded-lg bg-blue-50 border border-blue-200 text-[#191676] placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:ring-1 hover:ring-blue-300"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     placeholder="Enter your message"
                     value={formData.message}
                     onChange={(e) =>
@@ -197,23 +174,42 @@ export default function ContactPage() {
                   </motion.div>
                 )}
 
-                <motion.button
+                <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full group relative inline-flex items-center justify-center px-8 py-3 font-semibold overflow-hidden rounded-lg bg-[#191676] text-white hover:bg-blue-900 transform transition-all duration-300 hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-                  whileHover={{ scale: 1.05 }}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="relative">
-                    {isLoading ? 'Sending...' : 'Send Message'}
-                  </span>
-                </motion.button>
+                  {isLoading ? 'Sending...' : 'Send Message'}
+                </Button>
               </form>
-            </motion.div>
-          </div>
-        </motion.div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
-      <Footer />
 
-    </main>
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-pink-600">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of presenters who have transformed their presentations with QuickCast
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
+              Start Free Trial
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 text-lg"
+            >
+              Schedule Demo
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
   );
 }

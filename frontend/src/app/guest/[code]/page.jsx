@@ -574,24 +574,24 @@ export default function Room() {
       animate="animate" 
       exit="exit"
       variants={pageVariants}
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100 py-4 px-2 sm:py-6 sm:px-4 overflow-hidden"
+      className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 py-4 px-2 sm:py-6 sm:px-4 overflow-hidden"
     >
       <div className="container mx-auto max-w-7xl h-[calc(100vh-2rem)]">
         {/* Header */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-3 sm:p-4 md:p-6 mb-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 {room.name}
               </h1>
               <div className="flex flex-wrap items-center gap-1.5 md:gap-3 mt-2">
-                <div className="flex items-center text-xs sm:text-sm px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
+                <div className="flex items-center text-xs sm:text-sm px-2 py-1 bg-purple-100 text-purple-700 rounded-full">
                   <span>Room Code: {code}</span>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={copyRoomCode}
-                    className="ml-1.5 p-1 rounded-full bg-blue-200 hover:bg-blue-300 transition-colors"
+                    className="ml-1.5 p-1 rounded-full bg-purple-200 hover:bg-purple-300 transition-colors"
                     aria-label="Copy room code"
                   >
                     {isCopied ? (
@@ -607,7 +607,7 @@ export default function Room() {
                     )}
                   </motion.button>
                 </div>
-                <span className="text-xs sm:text-sm px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full">
+                <span className="text-xs sm:text-sm px-2 py-1 bg-pink-100 text-pink-700 rounded-full">
                   {isAdmin
                     ? 'Presenter: ' + JSON.parse(localStorage.getItem('presenter'))?.name
                     : 'Guest: ' + localStorage.getItem('guestName')}
@@ -628,7 +628,7 @@ export default function Room() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setShowUploadModal(true)}
-                    className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-indigo-100 hover:bg-indigo-200 text-indigo-700 rounded-lg transition-colors"
+                    className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg transition-all hover:shadow-lg hover:shadow-purple-500/20"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" />
@@ -639,11 +639,11 @@ export default function Room() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setShowParticipants(prev => !prev)}
-                    className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-indigo-100 hover:bg-indigo-200 text-indigo-700 rounded-lg transition-colors"
+                    className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg transition-all hover:shadow-lg hover:shadow-purple-500/20"
                   >
                     <Users size={16} />
                     <span className="hidden xs:inline">Participants</span>
-                    <span className="rounded-full bg-indigo-200 px-1.5 py-0.5 text-xs">
+                    <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-xs">
                       {participants.length}
                     </span>
                   </motion.button>
@@ -657,7 +657,7 @@ export default function Room() {
                 className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition-colors"
               >
                 <LogOut size={16} />
-                <span className=" xs:inline">Leave</span>
+                <span className="xs:inline">Leave</span>
               </motion.button>
             </div>
           </div>
@@ -672,16 +672,16 @@ export default function Room() {
                 exit={{ opacity: 0, height: 0 }}
                 className="mt-3 overflow-hidden"
               >
-                <div className="bg-indigo-50 p-3 rounded-xl">
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-3 rounded-xl">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-sm font-medium text-indigo-700">
+                    <h3 className="text-sm font-medium text-purple-700">
                       Participants ({participants.length})
                     </h3>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setShowParticipants(false)}
-                      className="p-1 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-700 transition-colors"
+                      className="p-1 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 transition-colors"
                     >
                       <X size={14} />
                     </motion.button>
@@ -695,13 +695,13 @@ export default function Room() {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: i * 0.05 }}
-                          className="px-2 py-1 bg-white text-xs sm:text-sm text-indigo-600 rounded-full shadow-sm"
+                          className="px-2 py-1 bg-white text-xs sm:text-sm text-purple-600 rounded-full shadow-sm"
                         >
                           {p.name}
                         </motion.span>
                       ))
                     ) : (
-                      <span className="text-xs sm:text-sm text-indigo-500">No participants yet</span>
+                      <span className="text-xs sm:text-sm text-purple-500">No participants yet</span>
                     )}
                   </div>
                 </div>
@@ -712,14 +712,14 @@ export default function Room() {
 
         {/* Upload Modal */}
         {showUploadModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full"
             >
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Upload Presentation</h3>
+                <h3 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Upload Presentation</h3>
                 <button
                   onClick={() => setShowUploadModal(false)}
                   className="text-gray-400 hover:text-gray-600"
@@ -728,7 +728,7 @@ export default function Room() {
                 </button>
               </div>
 
-              <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
+              <div className="p-4 border-2 border-dashed border-purple-200 rounded-lg text-center">
                 <input
                   type="file"
                   accept=".ppt,.pptx,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation"
@@ -738,7 +738,7 @@ export default function Room() {
                 />
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                  className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all"
                 >
                   Choose PPT File
                 </button>
@@ -756,24 +756,24 @@ export default function Room() {
           <div className="flex border-b rounded-xl overflow-hidden bg-white/80 shadow mb-2">
             <button
               onClick={() => setMobileTab('slides')}
-              className={`flex-1 py-2 text-xs font-medium flex items-center justify-center transition-all duration-200 ${mobileTab === 'slides' ? 'bg-blue-100 text-blue-700 border-b-2 border-blue-700' : 'text-gray-600 hover:text-blue-700'}`}
+              className={`flex-1 py-2 text-xs font-medium flex items-center justify-center transition-all duration-200 ${mobileTab === 'slides' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white' : 'text-gray-600 hover:text-purple-700'}`}
             >
               Slides
             </button>
             <button
               onClick={() => setMobileTab('chat')}
-              className={`flex-1 py-2 text-xs font-medium flex items-center justify-center transition-all duration-200 ${mobileTab === 'chat' ? 'bg-blue-100 text-blue-700 border-b-2 border-blue-700' : 'text-gray-600 hover:text-blue-700'}`}
+              className={`flex-1 py-2 text-xs font-medium flex items-center justify-center transition-all duration-200 ${mobileTab === 'chat' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white' : 'text-gray-600 hover:text-purple-700'}`}
             >
               Chat
             </button>
             <button
               onClick={() => setMobileTab('polls')}
-              className={`flex-1 py-2 text-xs font-medium flex items-center justify-center transition-all duration-200 ${mobileTab === 'polls' ? 'bg-blue-100 text-blue-700 border-b-2 border-blue-700' : 'text-gray-600 hover:text-blue-700'}`}
+              className={`flex-1 py-2 text-xs font-medium flex items-center justify-center transition-all duration-200 ${mobileTab === 'polls' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white' : 'text-gray-600 hover:text-purple-700'}`}
             >
               {isAdmin ? 'Create Polls' : 'Polls'}
             </button>
           </div>
-          {/* Mobile Tab Content - keep all mounted, toggle visibility */}
+          {/* Mobile Tab Content */}
           <div className="w-full h-[60vh] mb-3 relative group">
             <div className={`h-full bg-white rounded-2xl shadow-xl overflow-hidden ${mobileTab === 'slides' ? '' : 'hidden'}`}>
               {renderPresentation()}
@@ -791,7 +791,7 @@ export default function Room() {
           </div>
         </div>
 
-        {/* Desktop layout (unchanged) */}
+        {/* Desktop layout */}
         <div className="hidden md:flex flex-col md:flex-row h-[calc(100vh-8rem)] md:h-[calc(100vh-9rem)] lg:h-[calc(100vh-10rem)]">
           {/* Presentation Section */}
           <div className="w-full md:w-2/3 lg:w-3/4 md:pr-3 h-1/2 md:h-full mb-3 md:mb-0">
@@ -811,8 +811,8 @@ export default function Room() {
               <button
                 onClick={() => setActiveTab('chat')}
                 className={`flex-1 py-2 text-xs sm:text-sm font-medium ${activeTab === 'chat'
-                  ? 'bg-blue-100 text-blue-700 border-b-2 border-blue-700'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                  : 'text-gray-600 hover:text-purple-700'
                   }`}
               >
                 Chat
@@ -820,14 +820,14 @@ export default function Room() {
               <button
                 onClick={() => setActiveTab('polls')}
                 className={`flex-1 py-2 text-xs sm:text-sm font-medium ${activeTab === 'polls'
-                  ? 'bg-blue-100 text-blue-700 border-b-2 border-blue-700'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                  : 'text-gray-600 hover:text-purple-700'
                   }`}
               >
                 {isAdmin ? 'Create Polls' : 'Polls'}
               </button>
             </div>
-            {/* Tab Content - keep all mounted, toggle visibility */}
+            {/* Tab Content */}
             <div className="flex-1 overflow-hidden">
               <div className={`h-full ${activeTab === 'chat' ? 'block' : 'hidden'}`}> 
                 <motion.div

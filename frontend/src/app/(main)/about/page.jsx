@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { AnimatedContainer, AnimatedItem, fadeInUpVariants } from "@/animations/PageTransation.jsx";
-import { Presentation, Users, BarChart2, Globe, Shield, Zap } from 'lucide-react';
+import { Presentation, Users, Shield } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -90,37 +90,6 @@ export default function About() {
                 </CardDescription>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-gray-50 to-slate-100">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">10,000+</h3>
-              <p className="text-gray-600">Active Users</p>
-            </div>
-
-            <div>
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">50+</h3>
-              <p className="text-gray-600">Countries</p>
-            </div>
-
-            <div>
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <BarChart2 className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">1M+</h3>
-              <p className="text-gray-600">Presentations Delivered</p>
-            </div>
           </div>
         </div>
       </section>

@@ -1,14 +1,31 @@
+'use client'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Upload, MessageCircle, BarChart3, Play, Users, Zap, Shield, Globe } from "lucide-react"
+import { Upload, MessageCircle, BarChart3, Play, Users, Zap, Shield, Globe, LinkIcon } from "lucide-react"
 import Footer from "@/components/Footer"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function LandingPage() {
+
+  const router = useRouter();
+
+
+  const checkToken = () => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      router.push('/presentor/manage-rooms');
+    } else {
+      router.push('/login');
+    }
+  }
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       {/* Header */}
-      
+
 
       {/* Hero Section */}
       <section className="py-20 px-4">
@@ -29,17 +46,15 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
+              onClick={() => checkToken()}
               size="lg"
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-3 text-lg"
             >
               Start Presenting Now
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-3 text-lg">
-              <Play className="w-5 h-5 mr-2" />
-              Watch Demo
-            </Button>
+
           </div>
-          <div className="mt-12 flex items-center justify-center space-x-8 text-sm text-gray-500">
+          {/* <div className="mt-12 flex items-center justify-center space-x-8 text-sm text-gray-500">
             <div className="flex items-center">
               <Users className="w-4 h-4 mr-2" />
               10,000+ Users
@@ -52,7 +67,7 @@ export default function LandingPage() {
               <Shield className="w-4 h-4 mr-2" />
               Enterprise Ready
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -190,7 +205,7 @@ export default function LandingPage() {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 text-lg"
             >
-              Schedule Demo
+              Contact us
             </Button>
           </div>
         </div>

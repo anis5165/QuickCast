@@ -1,7 +1,7 @@
-"use client"; // If using Next.js 13+ with App Router
+"use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Zap, LogOut, User } from "lucide-react";
+import { Menu, X, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -17,11 +17,13 @@ export default function Navbar() {
     router.push('/');
   };
 
+  // Only include Dashboard if user is logged in
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Features', href: '/features' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Contact', href: '/contact' },
+    ...(user ? [{ name: 'Dashboard', href: '/presentor/manage-rooms' }] : [])
   ];
 
   return (
@@ -41,14 +43,14 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                whileHover={{ scale: 1.05 }}
-                className="text-gray-600 hover:text-purple-600 transition-colors"
-              >
-                {item.name}
-              </motion.a>
+              <Link key={item.name} href={item.href} passHref legacyBehavior>
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  className="text-gray-600 hover:text-purple-600 transition-colors"
+                >
+                  {item.name}
+                </motion.a>
+              </Link>
             ))}
           </div>
 
@@ -106,14 +108,14 @@ export default function Navbar() {
             className="md:hidden py-4 space-y-4"
           >
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              <Link key={item.name} href={item.href} passHref legacyBehavior>
+                <a
+                  className="block px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-gray-50 rounded-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              </Link>
             ))}
             {user ? (
               <div className="px-4 py-2">

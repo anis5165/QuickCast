@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import toast from 'react-hot-toast';
+import Footer from '@/components/Footer';
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -157,7 +158,7 @@ export default function Signup() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 md:px-28">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -184,6 +185,8 @@ export default function Signup() {
           </div>
         </div>
       </section>
+
+      <Footer/>
     </div>
   );
 }

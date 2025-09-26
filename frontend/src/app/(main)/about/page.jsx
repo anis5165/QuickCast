@@ -97,21 +97,14 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-pink-600">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Join Our Journey</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Presentations?</h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Be part of the presentation revolution. Start creating engaging presentations today.
+            Join thousands of presenters who have made their presentations more engaging with QuickCast
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
-              Get Started
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 text-lg"
-            >
-              Contact Sales
-            </Button>
+            <button href={() => checkToken()} size="lg" className="bg-white text-purple-600 hover:bg-gray-100 rounded-lg px-8 py-3 text-lg font-semibold">
+              Start Now
+            </button>
           </div>
         </div>
       </section>

@@ -81,7 +81,7 @@ export default function Navbar() {
                   Sign In
                 </Button>
                 <Button
-                  onClick={() => router.push('/register')}
+                  onClick={() => router.push('/signup')}
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:shadow-lg hover:shadow-purple-500/20"
                 >
                   Get Started

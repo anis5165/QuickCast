@@ -143,23 +143,16 @@ const FeaturesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-pink-600">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Presentations?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of presenters who have revolutionized their presentation experience with QuickCast
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Presentations?</h2>
+          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of presenters who have made their presentations more engaging with QuickCast
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-semibold">
-              Get Started Free
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-3 text-lg"
-            >
-              Schedule Demo
-            </Button>
+            <button href={() => checkToken()} size="lg" className="bg-white text-purple-600 hover:bg-gray-100 rounded-lg px-8 py-3 text-lg font-semibold">
+              Start Now
+            </button>
           </div>
         </div>
       </section>
